@@ -4,9 +4,12 @@ import time
 import sys
 import os
 
-slot1 = ('1', '2', '3')
-slot2 = ('1', '2', '3')
-slot3 = ('1', '2', '3')
+slot1 = ''
+slot2 = ''
+slot3 = ''
+current_bet = 0
+bank = 0
+
 
 
 def start():
@@ -22,6 +25,25 @@ def start():
 
 
 def run_game():
-
+    global slot1, slot2, slot3, bank, current_bet
+    if bank <= 0:
+        print("You're all out of cash, game over!")
+    while bank > 0:
+        if current_bet > 0 and bank >= current_bet:
+            bet_repeat = input('[Enter] to place same bet, or enter no to place a new bet!')
+            if bet_repeat == "":
+                bet = current_bet
+            else:
+                current_bet = 0
+                bet = 0
+                run_game()
+        else:
+            try:
+                bet = int(input("Place your bet!: "))
+            except ValueError:
+                return run_game()
+        if bet >= 0 and bank >= bet:
+            bank -= bet
+            current_bet = bet        
 
 start()
