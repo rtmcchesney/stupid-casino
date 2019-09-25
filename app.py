@@ -44,6 +44,23 @@ def run_game():
                 return run_game()
         if bet >= 0 and bank >= bet:
             bank -= bet
-            current_bet = bet        
-
+            current_bet = bet
+            try:
+                slot1 = ['1', '2', '2', '3', '3', '3', '4', '4', '4', '4', '5', '5', '5', '5', '5']
+                slot2 = ['1', '2', '2', '3', '3', '3', '4', '4', '4', '4', '5', '5', '5', '5', '5']
+                slot3 = ['1', '2', '2', '3', '3', '3', '4', '4', '4', '4', '5', '5', '5', '5', '5']
+                slot1 = choice(slot1)
+                slot2 = choice(slot2)
+                slot3 = choice(slot3)
+                print('Spinning slots!')        
+                for choice in slot1:
+                    time.sleep(0.5)
+                    print(choice)
+                for choice in slot2:
+                    time.sleep(0.5)
+                    print(choice)
+                for choice in slot3:
+                    time.sleep(0.5)    
+                    print(choice)
+                print("-------------")    
 start()
